@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Zombie Shooter - game sinh tồn 2D chạy trực tiếp trên trình duyệt">
+    <title>Zombie Shooter: Last Stand</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <main class="game-shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">SURVIVAL PROTOCOL</p>
+                <h1>ZOMBIE SHOOTER</h1>
+            </div>
+            <div class="topbar-actions">
+                <button id="settingsButton" class="icon-button" type="button">Cài đặt</button>
+                <button id="soundButton" class="icon-button" type="button" aria-label="Bật tắt âm thanh">Âm thanh: Bật</button>
+                <button id="pauseButton" class="icon-button" type="button">Tạm dừng</button>
+            </div>
+        </header>
+
+        <section class="game-layout">
+            <div id="canvasFrame" class="canvas-frame">
+                <canvas id="gameCanvas" width="960" height="600">
+                    Trình duyệt của bạn không hỗ trợ HTML Canvas.
+                </canvas>
+
+                <section id="startScreen" class="screen active">
+                    <div class="screen-card">
+                        <p class="screen-kicker">NHIỆM VỤ SINH TỒN</p>
+                        <h2>Last Stand</h2>
+                        <p>Vượt qua từng đợt zombie, hạ Boss và chọn nâng cấp để trở nên mạnh hơn.</p>
+                        <button id="startButton" class="primary-button" type="button">Bắt đầu</button>
+                        <p class="small-note">Nhấn Enter hoặc bấm nút để chơi</p>
+                    </div>
+                </section>
+
+                <section id="pauseScreen" class="screen">
+                    <div class="screen-card compact">
+                        <p class="screen-kicker">GAME PAUSED</p>
+                        <h2>Tạm dừng</h2>
+                        <button id="resumeButton" class="primary-button" type="button">Tiếp tục</button>
+                    </div>
+                </section>
+
+                <section id="upgradeScreen" class="screen">
+                    <div class="upgrade-panel">
+                        <p class="screen-kicker">BOSS ĐÃ BỊ ĐÁNH BẠI</p>
+                        <h2>Chọn một nâng cấp</h2>
+                        <div id="upgradeChoices" class="upgrade-grid"></div>
+                    </div>
+                </section>
+
+                <section id="gameOverScreen" class="screen">
+                    <div class="screen-card">
+                        <p class="screen-kicker danger">MISSION FAILED</p>
+                        <h2>Game Over</h2>
+                        <div id="finalStats" class="final-stats"></div>
+                        <button id="restartButton" class="primary-button" type="button">Chơi lại</button>
+                    </div>
+                </section>
+
+                <section id="settingsScreen" class="screen">
+                    <div class="settings-panel">
+                        <p class="screen-kicker">CONTROL CONFIGURATION</p>
+                        <h2>Cài đặt phím</h2>
+                        <p class="settings-note">Chọn một ô rồi nhấn phím muốn gán. Nhấn Esc để hủy thao tác đang chờ. Dash vẫn hỗ trợ chuột phải.</p>
+                        <div id="keyBindings" class="key-bindings"></div>
+                        <div class="settings-actions">
+                            <button id="resetKeysButton" class="secondary-button" type="button">Khôi phục mặc định</button>
+                            <button id="closeSettingsButton" class="primary-button" type="button">Đóng</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="side-panel">
+                <section class="panel-card">
+                    <div class="panel-title">
+                        <span>Nhiệm vụ</span>
+                        <strong id="waveLabel">Wave 1</strong>
+                    </div>
+                    <div class="mission-row">
+                        <span>Mục tiêu còn lại</span>
+                        <strong id="enemyLabel">0</strong>
+                    </div>
+                    <div class="mission-row">
+                        <span>Boss đã hạ</span>
+                        <strong id="bossLabel">0</strong>
+                    </div>
+                </section>
+
+                <section class="panel-card">
+                    <div class="panel-title">
+                        <span>Điều khiển</span>
+                    </div>
+                    <div id="controlList" class="control-list">
+                        <p><kbd>WASD</kbd><span>Di chuyển</span></p>
+                        <p><kbd>Chuột trái</kbd><span>Bắn</span></p>
+                        <p><kbd>R</kbd><span>Nạp đạn</span></p>
+                        <p><kbd>1–5</kbd><span>Đổi súng</span></p>
+                        <p><kbd>Chuột phải</kbd><span>Dash</span></p>
+                        <p><kbd>G</kbd><span>Grenade</span></p>
+                        <p><kbd>T</kbd><span>Shield</span></p>
+                        <p><kbd>Esc</kbd><span>Tạm dừng</span></p>
+                    </div>
+                </section>
+
+                <section class="panel-card tips">
+                    <div class="panel-title">
+                        <span>Mẹo sinh tồn</span>
+                    </div>
+                    <p>Hộp tiếp tế cấp đạn cho tất cả súng và thêm Grenade nếu bạn còn chỗ.</p>
+                    <p>Boss luôn báo hiệu trước khi tung kỹ năng mạnh.</p>
+                </section>
+            </aside>
+        </section>
+    </main>
+
+    <script src="gametest06.js"></script>
+</body>
+</html>
